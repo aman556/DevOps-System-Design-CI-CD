@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '**.go'
+      - 'app/**'
       - 'Dockerfile'
   pull_request:
     branches: [main]

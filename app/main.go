@@ -12,7 +12,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", handler)
 	port := ":8080"
-	fmt.Println("Testing statement 3")
+	fmt.Println("Testing statement 4")
 	fmt.Printf("Server starting at http://localhost%s\n", port)
 	if err := http.ListenAndServe(port, nil); err != nil {
 		fmt.Println("Server failed:", err)
