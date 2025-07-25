@@ -4,9 +4,14 @@ name: Build, Test, and Release Golang Docker App
 on:
   push:
     branches: [main]
+    paths:
+      - '**.go'
+      - 'Dockerfile'
   pull_request:
     branches: [main]
-  workflow_dispatch:
+    paths:
+      - '**.go'
+      - 'Dockerfile'
 
 jobs:
   build-test-release:
@@ -59,7 +64,7 @@ jobs:
       if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
       run: |
         # Clone the app configuration repository
-        git clone https://github.com/aman556/DevOps-System-Design-app-configuration.git app-config
+        git clone git@github.com:aman556/DevOps-System-Design-app-configuration.git app-config
         cd app-config
         
         # Update the version in values.yaml
@@ -88,4 +93,4 @@ jobs:
       with:
         tag_name: ${{ steps.version.outputs.version }}
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
