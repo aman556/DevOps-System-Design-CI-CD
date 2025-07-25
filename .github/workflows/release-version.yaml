@@ -63,8 +63,8 @@ jobs:
     - name: Update App Configuration Repository
       if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
       run: |
-        # Clone the app configuration repository
-        git clone git@github.com:aman556/DevOps-System-Design-app-configuration.git app-config
+        # Clone the app configuration repository using HTTPS with token
+        git clone https://${{ secrets.TOKEN }}@github.com/aman556/DevOps-System-Design-app-configuration.git app-config
         cd app-config
         
         # Update the version in values.yaml
