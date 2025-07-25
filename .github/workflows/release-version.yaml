@@ -79,7 +79,7 @@ jobs:
           # Commit and push changes
           git add golang-app/values.yaml
           git commit -m "Update image tag to ${{ steps.version.outputs.version }}"
-          git push https://${{ secrets.GH_PAT }}@github.com/aman556/DevOps-System-Design-app-configuration.git HEAD:main
+          git push https://${{ secrets.TOKEN }}@github.com/aman556/DevOps-System-Design-app-configuration.git HEAD:main
           
           echo "✅ Successfully updated version in app configuration repository"
         else
